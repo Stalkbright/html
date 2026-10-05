@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <title>Bentley Fries | Loaded Gourmet Fries</title>
+    <style>
+        /* --- CSS STYLES --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        
+        }
+
+        /* Header / Navbar */
+        header {
+            background-color: var(--dark-color);
+            color: #fff;
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 20px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
+                        url('https://images.unsplash.com/photo-1576107232684-1279f3908594?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
+            height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: #fff;
+            padding: 0 20px;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 25px;
+            max-width: 600px;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--secondary-color);
+            color: #fff;
+            padding: 12px 30px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            text-transform: uppercase;
+            transition: background 0.3s, transform 0.2s;
+        }
+
+
+        /* Menu Section */
+        .menu-section {
+            padding: 60px 5%;
+            text-align: center;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            width: 50%;
+            height: 4px;
+            background-color: var(--secondary-color);
+            position: absolute;
+            bottom: -10px;
+            left: 25%;
+            border-radius: 2px;
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .menu-card {
+            background-color: #fff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .menu-card:hover {
+            transform: translateY(-8px);
+        }
+
+        .menu-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .menu-card-body {
+            padding: 20px;
+            text-align: left;
+        }
+
+        .menu-card-body h3 {
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+            color: var(--dark-color);
+        }
+
+        .menu-card-body p {
+            font-size: 0.95rem;
+            color: #666;
+            margin-bottom: 15px;
+        }
+
+        .price-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .price {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: var(--secondary-color);
+        }
+
+
+
+        /* About Section */
+        .about-section {
+            background-color: #fff;
+            padding: 60px 5%;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .about-text {
+            flex: 1 1 400px;
+        }
+
+        .about-text h2 {
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+        }
+
+        .about-image {
+            flex: 1 1 400px;
+        }
+
+        .about-image img {
+            width: 100%;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark-color);
+            color: #fff;
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 40px;
+        }
+
+        footer p {
+            margin-bottom: 10px;
+        }
+
+        .socials a {
+            color: var(--primary-color);
+            margin: 0 10px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header / Navigation -->
+    <header>
+        <div class="logo">Bentley Fries</div>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#menu">Menu</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <h1>Crispy. Loaded. Delicious.</h1>
+        <p>Experience the ultimate gourmet fries crafted with secret spices, premium toppings, and fresh ingredients.</p>
+        <a href="#menu" class="btn">Order Now</a>
+    </section>
+
+    <!-- Menu Section -->
+    <section class="menu-section" id="menu">
+        <h2 class="section-title">Our Famous Fries</h2>
+        <div class="menu-grid">
+            
+            <!-- Menu Item 1 -->
+            <div class="menu-card">
+                <img src="https://images.unsplash.com/photo-1585109649139-366815a0d713?auto=format&fit=crop&w=600&q=80" alt="Classic Golden Fries">
+                <div class="menu-card-body">
+                    <h3>Classic Golden Cuts</h3>
+                    
+                    <div class="price-row">
+                        <span class="price">65 cedis</span>
+                        <button class="add-btn">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Menu Item 2 -->
+            <div class="menu-card">
+                <img src="https://images.unsplash.com/photo-1541592106381-b31e9677c0e5?auto=format&fit=crop&w=600&q=80" alt="Cheese Loaded Fries">
+                <div class="menu-card-body">
+                    <h3>Cheesy Overload</h3>
+                
+                    <div class="price-row">
+                        <span class="price">50 cedis</span>
+                        <button class="add-btn">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Menu Item 3 -->
+            <div class="menu-card">
+                <img src="https://images.unsplash.com/photo-1623238913973-21e45cced554?auto=format&fit=crop&w=600&q=80" alt="Bacon & BBQ Fries">
+                <div class="menu-card-body">
+                    <h3>Loaded Fries</h3>
+            
+                    <div class="price-row">
+                        <span class="price">90  cedis</span>
+                        <button class="add-btn">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Menu Item 4 -->
+            <div class="menu-card">
+                <img src="https://images.unsplash.com/photo-1573080496219-bb080dd4f877?auto=format&fit=crop&w=600&q=80" alt="Spicy Chili Fries">
+                <div class="menu-card-body">
+                    <h3>Bentley Inferno</h3>
+                    <
+                    <div class="price-row">
+                        <span class="price">100 cedis</span>
+                        <button class="add-btn">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-section" id="about">
+        <div class="about-text">
+            <h2>Why Bentley Fries?</h2>
+            <p>At Bentley Fries, we believe fries aren't just a side dish. They are the main event. Founded with a passion for crunch and flavor, we source locally grown potatoes and double fry them to perfection.</p>
+            <br>
+            <p>Whether you're craving traditional salty goodness or an entire meal loaded on top of fries, Bentley Fries is here to satisfy your cravings.</p>
+            <h2>CONTACTS</h2>
+            <p>EMAIL- Bentleyfries@gail.com
+                LOCATION - Around Wisconsin, Accra
+                TEL- 05375232156
+        </div>
+        <div class="about-image">
+            <img src="https://images.unsplash.com/photo-1576107232684-1279f3908594?auto=format&fit=crop&w=800&q=80" alt="Bentley Fries Shop">
+        </div>
+    </section>
+    <iframe width="420" height="315"
+src="https://www.youtube.com/embed/tgbNymZ7vqY?playlist=tgbNymZ7vqY&loop=1">
+</iframe>
+
+    <!-- Footer Section -->
+
+</iframe>
+    </footer>
+
+</body>
+</html>
